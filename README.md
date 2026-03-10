@@ -1,161 +1,121 @@
-# Traffic Accident Pattern Analysis and Crash Severity Prediction
+# Traffic Accident Pattern Analysis and Crash Severity Prediction using NHTSA Crash Data
+
+--------------------------------------------------------------------------
+
 # Project Overview
 
-Road traffic accidents remain a significant public safety issue across many regions. Analyzing accident data can help identify patterns that contribute to severe crashes and support data-driven decision making for improving road safety.
+Road traffic accidents are a major public safety concern worldwide. Understanding accident patterns and identifying factors associated with severe crashes can help improve road safety planning and prevention strategies.
 
-This project focuses on analyzing traffic accident records from the National Highway Traffic Safety Administration (NHTSA) crash dataset. The analysis explores accident patterns related to time, location, demographic characteristics, and collision types. In addition, a baseline machine learning model is developed to predict accident severity based on available features.
+This project analyzes crash records from the National Highway Traffic Safety Administration (NHTSA) dataset to explore accident trends, geographic distributions, and demographic characteristics of crash victims. In addition to exploratory analysis, a baseline machine learning model is developed to predict crash severity based on various accident-related features.
 
-The project demonstrates the application of data preprocessing, exploratory data analysis, visualization, and machine learning techniques using Python.
+----------------------------------------------------------------------------
 
 # Project Objectives
 
-1. Explore traffic accident data to identify accident trends and patterns
-2. Perform data cleaning and preprocessing to prepare the dataset for analysis
-3. Conduct exploratory data analysis to understand accident distribution
-4. Visualize accident patterns using informative charts
-5. Develop a machine learning model to predict crash severity
-6. Evaluate model performance using classification metrics
+1. Analyze traffic accident data to identify patterns related to time, location, and demographic factors.
+2. Perform data cleaning and preprocessing to prepare the dataset for analysis.
+3. Conduct exploratory data analysis (EDA) to understand crash trends.
+4. Visualize accident patterns using meaningful charts and graphs.
+5. Build a machine learning model to predict crash severity.
+6. Evaluate model performance using standard classification metrics.
 
-# Dataset Description
+---------------------------------------------------------------------------
 
-The dataset contains records of traffic collisions including geographic, temporal, and demographic information.
+# Dataset Information
 
-Some key attributes included in the dataset:
-1. unique_id – unique record identifier
-2. latitude / longitude – geographic location of the crash
-3. collision_date / collision_time – date and time of accident
-4. death_date / death_time – time associated with fatality
-5. age – age of the individual involved in the accident
-6. sex – gender of the individual
-7. collision_type – type of crash event
-8. street_type – type of road where the accident occurred
-9. analysis_neighborhood – neighborhood of the crash location
-10. police_district – district where the accident was reported
-11. supervisor_district – administrative district information
-12. deceased – indicator representing fatal crash outcome
+The dataset contains crash records including information such as:
+  1. Geographic location (latitude and longitude)
+  2. Collision date and time
+  3. Victim age and gender
+  4. Type of collision
+  5. Street type
+  6. Neighborhood and district information
+  7. Fatality indicator (deceased)
 
-# Tools and Technologies
-# Programming Language
+These attributes allow analysis of both spatial and temporal accident patterns.
+
+------------------------------------------------------------------------
+
+# Tools and Technologies Used
+
+1. Programming Language
 
 Python
 
-# Libraries Used
+2. Libraries
 
-Pandas – data manipulation and preprocessing
-
-NumPy – numerical computations
-
+Pandas – data manipulation and analysis
+NumPy – numerical computation
 Matplotlib – data visualization
+Seaborn – statistical visualization
+Scikit-learn – machine learning models and evaluation
 
-Seaborn – statistical data visualization
-
-Scikit-learn – machine learning modeling and evaluation
+----------------------------------------------------------------------------
 
 # Project Workflow
-1. Data Loading
 
-The dataset was imported using the Pandas library. Initial exploration was performed to examine dataset size, column types, and missing values.
+1. Data Collection
+
+The crash dataset was obtained from publicly available traffic safety data sources.
 
 2. Data Cleaning
 
-The following preprocessing steps were performed:
-
-Removed duplicate records
-
-Identified and handled missing values
-
-Dropped rows containing null values in important columns such as:
-
-  death_time
-  collision_time
-  age
-  analysis_neighborhood
-  supervisor_district
-  data_as_of
-
-Converted date and time columns into datetime format for analysis.
+1) Removed duplicate records
+2) Handled missing values
+3) Filtered incomplete entries
+4) Converted date and time columns to datetime format
 
 3. Feature Engineering
 
-Additional features were created to analyze temporal accident trends:
-    Collision hour
-    Collision day of the week
-    Collision month
+Additional features were created including:
+  1) Collision hour
+  2) Collision month
+  3) Day of the week
 
-These features help understand how accidents vary throughout different times.
+These features help identify time-based accident trends.
 
-4. Exploratory Data Analysis (EDA)
+4. Exploratory Data Analysis
 
-Exploratory analysis was conducted to identify patterns in accident occurrences.
+EDA was performed to understand:
+  1) Age distribution of accident victims
+  2) Frequency of accidents by time of day
+  3) Gender distribution
+  4) Collision type patterns
+  5) Geographic distribution of accidents
 
-The analysis focused on:
-    Age distribution of accident victims
-    Gender distribution
-    Accident frequency by hour of the day
-    Collision type distribution
-    Neighborhood accident counts
-    Geographic accident distribution using latitude and longitude
+5. Data Visualization
 
-# Data Visualization
+Multiple charts were generated to highlight patterns in accident data including:
+          1) Histogram plots
+          2) Count plots
+          3) Geographic scatter plots
+          4) Neighborhood accident comparisons
 
-Several visualizations were created to better understand the dataset, including:
-    Age distribution histogram
-    Accidents by hour of the day
-    Collision type frequency chart
-    Gender distribution plot
-    Neighborhood accident comparison
-    Geographic crash location scatter plot
+6. Machine Learning Model
 
-These visualizations help reveal important accident trends and patterns.
+A classification model was developed to predict whether a crash resulted in a fatality.
 
-# Machine Learning Model
+The following algorithms were used:
 
-A classification model was developed to predict crash severity based on accident attributes.
+    1) Logistic Regression (baseline model)
+    2) Random Forest Classifier
 
-Feature Variables
+7. Model Evaluation
 
-Examples of features used for prediction:
+Model performance was evaluated using:
+          1) Accuracy Score
+          2) Confusion Matrix
+          3) Classification Report
 
-Age
-Sex
-Collision type
-Street type
-Collision hour
-Collision month
-Geographic coordinates
+----------------------------------------------------------------------------
 
-# Target Variable
+# Key Insights
 
-deceased – indicates whether the accident resulted in a fatality.
+1. Certain hours of the day show a higher concentration of accidents.
+2. Specific neighborhoods report more crash incidents compared to others.
+3. Age groups between young adults and middle-aged individuals appear frequently in accident records.
+4. Some collision types are associated with higher fatality risk.
 
-# Models Implemented
-# Logistic Regression
-Used as a baseline classification model to predict crash severity.
+# Conclusion
 
-# Random Forest Classifier
-An ensemble machine learning model used to improve prediction performance by combining multiple decision trees.
-
-#Model Evaluation
-The models were evaluated using the following metrics:
-
-Accuracy Score
-
-Confusion Matrix
-
-Classification Report
-
-These metrics help measure the model's ability to correctly classify accident severity outcomes.
-
-Key Insights
-
-The analysis revealed several patterns in the accident dataset:
-
-Certain hours of the day show higher accident frequency.
-
-Some neighborhoods report more crashes than others.
-
-Young and middle-aged individuals appear frequently in accident records.
-
-Specific collision types may be associated with higher fatality risk.
-
-These findings highlight how accident data can provide insights into traffic safety conditions.
+The analysis demonstrates that traffic accident data can provide valuable insights into crash patterns and risk factors. By applying exploratory data analysis and machine learning techniques, it is possible to identify conditions that contribute to severe accidents. These insights can support data-driven decision making in road safety and traffic management.
